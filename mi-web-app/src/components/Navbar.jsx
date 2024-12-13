@@ -20,12 +20,23 @@ function Navbar() {
         scrolling ? 'bg-[#1d0af8] bg-opacity-90' : 'bg-[#3b1ff9] bg-opacity-80'
       }`}
     >
-      <div className="text-xl font-bold">MyWebsite</div>
+      {/* Logo */}
+      <div className="text-xl font-bold">
+        <Link
+          to="home"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer hover:underline"
+        >
+          MyWebsite
+        </Link>
+      </div>
 
       {/* Botón Menú */}
       <div
         className="lg:hidden z-20 flex flex-col gap-1 w-8 h-8 justify-center items-center cursor-pointer"
         onClick={toggleMenu}
+        aria-label="Menu Toggle"
       >
         <span
           className={`block w-full h-1 bg-white transition-transform ${
@@ -50,46 +61,24 @@ function Navbar() {
           isOpen ? 'block' : 'hidden lg:flex'
         }`}
       >
-        <li>
-          <Link
-            to="home"
-            smooth={true}
-            duration={500}
-            className="flex items-center gap-2 px-4 py-2 hover:scale-105 hover:underline decoration-[#955eff] cursor-pointer"
-          >
-            <FaHome /> Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            className="flex items-center gap-2 px-4 py-2 hover:scale-105 hover:underline decoration-[#955eff] cursor-pointer"
-          >
-            <FaUser /> About
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="portfolio"
-            smooth={true}
-            duration={500}
-            className="flex items-center gap-2 px-4 py-2 hover:scale-105 hover:underline decoration-[#955eff] cursor-pointer"
-          >
-            <FaBriefcase /> Portfolio
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            className="flex items-center gap-2 px-4 py-2 hover:scale-105 hover:underline decoration-[#955eff] cursor-pointer"
-          >
-            <FaEnvelope /> Contact
-          </Link>
-        </li>
+        {[ 
+          { id: 'home', icon: <FaHome />, label: 'Home' }, 
+          { id: 'about', icon: <FaUser />, label: 'About' }, 
+          { id: 'portfolio', icon: <FaBriefcase />, label: 'Portfolio' }, 
+          { id: 'contact', icon: <FaEnvelope />, label: 'Contact' } 
+        ].map((link) => (
+          <li key={link.id} className="w-full sm:w-auto">
+            <Link
+              to={link.id}
+              smooth={true}
+              duration={500}
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 hover:scale-105 hover:underline decoration-[#955eff] cursor-pointer transition-transform"
+            >
+              {link.icon} {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

@@ -56,7 +56,7 @@ function Footer() {
       <div className="flex flex-wrap justify-center md:justify-between items-start z-10 w-full">
         {/* Redes sociales */}
         <div className="flex flex-col items-center md:items-start space-y-4 mb-8 md:mb-0">
-          <div className="flex space-x-8">
+          <div className="flex space-x-8 mb-4 md:mb-0">
             <a
               href="https://github.com/tuusuario"
               target="_blank"
