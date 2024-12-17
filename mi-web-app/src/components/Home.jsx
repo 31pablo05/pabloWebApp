@@ -47,19 +47,19 @@ function Home() {
 
           {/* Botones de redes sociales */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6">
-            <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/31pablo05" target="_blank" rel="noopener noreferrer">
               <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
                 <FaGithub size={32} />
                 <span className="text-lg font-semibold">GitHub</span>
               </button>
             </a>
-            <a href="mailto:tuemail@gmail.com" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:pabloproboste64@gmail.com" target="_blank" rel="noopener noreferrer">
               <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
                 <FaEnvelope size={32} />
                 <span className="text-lg font-semibold">Email</span>
               </button>
             </a>
-            <a href="https://www.linkedin.com/in/tuusuario/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/pablo-proboste-7626b5273/" target="_blank" rel="noopener noreferrer">
               <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
                 <FaLinkedin size={32} />
                 <span className="text-lg font-semibold">LinkedIn</span>

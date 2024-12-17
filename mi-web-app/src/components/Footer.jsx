@@ -58,7 +58,7 @@ function Footer() {
         <div className="flex flex-col items-center md:items-start space-y-4 mb-8 md:mb-0">
           <div className="flex space-x-8 mb-4 md:mb-0">
             <a
-              href="https://github.com/tuusuario"
+              href="https://github.com/31pablo05"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-200 text-4xl transform hover:scale-110 transition-all duration-300"
@@ -66,7 +66,7 @@ function Footer() {
               <FaGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/tuusuario"
+              href="https://www.linkedin.com/in/pablo-proboste-7626b5273/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-200 text-4xl transform hover:scale-110 transition-all duration-300"
