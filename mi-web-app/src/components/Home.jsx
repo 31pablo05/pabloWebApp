@@ -1,90 +1,179 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
-import perfilImage from '../assets/imagenHome.jpg';
-import backgroundVideoMp4 from '../assets/fondoome2.mp4'; // Ruta del video MP4
-import backgroundVideoWebM from '../assets/fondoome2_1.webm'; // Ruta del video WebM
+import { Link } from 'react-scroll';
 
 function Home() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  // Datos de redes sociales
+  const socialLinks = [
+    {
+      name: 'GitHub',
+      icon: <FaGithub size={32} />,
+      url: 'https://github.com/31pablo05',
+      color: 'hover:text-gray-400'
+    },
+    {
+      name: 'LinkedIn',
+      icon: <FaLinkedin size={32} />,
+      url: 'https://www.linkedin.com/in/pablo-proboste-7626b5273/',
+      color: 'hover:text-blue-400'
+    },
+    {
+      name: 'Instagram',
+      icon: <FaInstagram size={32} />,
+      url: 'https://www.instagram.com/probostepablo67/',
+      color: 'hover:text-pink-400'
+    },
+    {
+      name: 'Email',
+      icon: <FaEnvelope size={32} />,
+      url: 'mailto:pabloproboste64@gmail.com',
+      color: 'hover:text-red-400'
+    }
+  ];
+
+  // Animaciones
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <section
-      id="home"
-      className="relative h-screen flex justify-center items-center text-white"
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Overlay oscuro para resaltar el texto */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"></div>
-
-      {/* Video de fondo */}
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src={backgroundVideoWebM} type="video/webm" />
-        <source src={backgroundVideoMp4} type="video/mp4" />
-        Tu navegador no soporta videos.
-      </video>
-
-      {/* Contenido */}
-      <div className="relative z-10 container flex flex-col lg:flex-row justify-between items-center w-full max-w-screen-xl px-4 space-y-8 lg:space-y-0">
-        {/* Texto de presentación */}
-        <div className="text-center lg:text-left lg:w-2/3">
-          <h1 className="text-5xl md:text-6xl lg:text-8xl font-extrabold mb-6 text-shadow-lg tracking-wide">
-            Hola{' '}
-            <span className="inline-block animate-wave">
-              👋
-            </span>
-            {' '}soy{' '}
-            <span className="bg-gradient-to-r from-[#00FFFF] to-[#D580FF] text-transparent bg-clip-text animate-pulse">
-              Pablo Proboste
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-2xl lg:text-4xl font-medium mb-8 text-gray-200">
-            Un apasionado{' '}
-            <span className="text-pink-400 font-semibold">Desarrollador Frontend</span>
-          </p>
-
-          {/* Botones de redes sociales */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6">
-            <a href="https://github.com/31pablo05" target="_blank" rel="noopener noreferrer">
-              <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
-                <FaGithub size={32} />
-                <span className="text-lg font-semibold">GitHub</span>
-              </button>
-            </a>
-            <a href="mailto:pabloproboste64@gmail.com" target="_blank" rel="noopener noreferrer">
-              <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
-                <FaEnvelope size={32} />
-                <span className="text-lg font-semibold">Email</span>
-              </button>
-            </a>
-            <a href="https://www.linkedin.com/in/pablo-proboste-7626b5273/" target="_blank" rel="noopener noreferrer">
-              <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
-                <FaLinkedin size={32} />
-                <span className="text-lg font-semibold">LinkedIn</span>
-              </button>
-            </a>
-            <a href="https://www.instagram.com/tuusuario/" target="_blank" rel="noopener noreferrer">
-              <button className="w-40 md:w-48 px-6 py-4 bg-gray-800 text-white rounded-full flex items-center justify-center space-x-3 shadow-[0_0_15px_#8A2BE2] hover:scale-110 hover:border-4 hover:border-[#8A2BE2] hover:shadow-[0_0_30px_#8A2BE2] focus:outline-none active:border-[#D580FF] active:border-4 active:border-gradient-to-r active:from-[#8A2BE2] active:to-[#00FFFF] transition-all duration-300">
-                <FaInstagram size={32} />
-                <span className="text-lg font-semibold">Instagram</span>
-              </button>
-            </a>
-          </div>
-        </div>
-
-        {/* Imagen de perfil alineada a la derecha */}
-        <div className="lg:w-1/2 flex justify-center lg:justify-end mt-12 lg:mt-0">
-          <img
-            src={perfilImage}
-            alt="Pablo Proboste"
-            className="max-w-[400px] md:max-w-[500px] lg:max-w-[600px] w-full h-auto rounded-[10px] shadow-xl transform hover:scale-110 hover:rotate-3 transition-all duration-500"
-          />
-        </div>
-
+      {/* Video de fondo con overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          onLoadedData={() => setIsVideoLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <source src="/src/assets/fondoome2.webm" type="video/webm" />
+          <source src="/src/assets/fondoome2.mp4" type="video/mp4" />
+        </video>
       </div>
-    </section>
+
+      {/* Contenido principal */}
+      <div className="container mx-auto px-4 z-20">
+        <motion.div
+          variants={containerVariants}
+          className="text-center text-white"
+        >
+          {/* Título principal con efecto de typing */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl md:text-7xl font-bold mb-6"
+          >
+            Pablo Proboste
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+              Desarrollador Frontend
+            </span>
+          </motion.h1>
+
+          {/* Descripción */}
+          <motion.p
+            variants={itemVariants}
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
+          >
+            Creando experiencias web únicas y memorables con pasión por el diseño y la innovación
+          </motion.p>
+
+          {/* Botones de acción */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          >
+            <Link
+              to="portfolio"
+              smooth={true}
+              duration={500}
+              className="group relative"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
+              >
+                Ver Proyectos
+              </motion.button>
+            </Link>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="group relative"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+              >
+                Contactar
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          {/* Redes sociales */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center gap-6"
+          >
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className={`text-white transition-colors duration-300 ${link.color}`}
+                aria-label={`Visitar ${link.name}`}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+      >
+        <div className="w-6 h-10 border-2 border-white rounded-full p-1">
+          <div className="w-1.5 h-3 bg-white rounded-full mx-auto animate-bounce" />
+        </div>
+      </motion.div>
+    </motion.section>
   );
 }
 

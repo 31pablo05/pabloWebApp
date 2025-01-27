@@ -51,7 +51,7 @@ function Footer() {
       className="h-auto flex flex-col bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 text-white px-6 py-8 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 opacity-60 z-0"></div>
-      <h2 className="text-3xl font-semibold mb-6 z-10 text-center">Conéctame</h2>
+      <h2 className="text-3xl font-semibold mb-6 z-10 text-center">Contáctame</h2>
 
       <div className="flex flex-wrap justify-center md:justify-between items-start z-10 w-full">
         {/* Redes sociales */}
@@ -82,7 +82,7 @@ function Footer() {
               <FaTwitter />
             </a>
             <a
-              href="mailto:tuemail@dominio.com"
+              href="mailto:pabloproboste64@gmail.com"
               className="text-white hover:text-gray-200 text-4xl transform hover:scale-110 transition-all duration-300"
             >
               <FaEnvelope />
