@@ -22,16 +22,24 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="bg-gradient-to-b from-gray-900 to-black"
+        className="bg-gradient-to-b from-gray-900 to-black min-h-screen"
       >
         <Suspense fallback={<LoadingSpinner />}>
           <Navbar />
-          <main>
-            <Home />
-            <About />
-            <Portfolio />
+          <main className="scroll-smooth">
+            <section id="home" className="min-h-screen pt-16">
+              <Home />
+            </section>
+            <section id="about" className="min-h-screen pt-16">
+              <About />
+            </section>
+            <section id="portfolio" className="min-h-screen pt-16">
+              <Portfolio />
+            </section>
+            <section id="contact" className="pt-16">
+              <Footer />
+            </section>
           </main>
-          <Footer />
         </Suspense>
       </motion.div>
     </AnimatePresence>

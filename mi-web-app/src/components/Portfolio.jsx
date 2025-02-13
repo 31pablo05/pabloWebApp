@@ -1,8 +1,9 @@
-import React from 'react';
-import { FaReact, FaNodeJs } from "react-icons/fa";
+import React, { useMemo } from 'react';
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
 import { SiVite, SiTailwindcss, SiMongodb } from "react-icons/si";
+import { motion } from 'framer-motion';
 
-import { FaHtml5, FaCss3Alt, FaJs, FaGithub } from 'react-icons/fa';
+// Importar imágenes
 import nutricionista from '../assets/nutricionista.png';
 import tienda from '../assets/Captura.png';
 import fotografo from '../assets/portfolio.png';
@@ -10,19 +11,19 @@ import pichirayen from '../assets/pichirayen.webp';
 import appPedidos from '../assets/appPedidos.webp';
 
 function Portfolio() {
-  const projects = [
+  const projects = useMemo(() => [
     {
       name: 'Tienda Online',
       image: tienda,
       repoLink: 'https://github.com/31pablo05/MaestraPatagonica',
       liveLink: 'https://maestra-patagonica.vercel.app/',
       tech: [
-        <FaHtml5 className="text-3xl text-orange-600" />,
-        <FaReact className="text-3xl text-blue-400" />, // React
-        <SiVite className="text-3xl text-purple-600" />, // Vite
-        <SiTailwindcss className="text-3xl text-blue-500" />, // Tailwind CSS
-        <FaNodeJs className="text-3xl text-green-600" />, // Node.js
-        <SiMongodb className="text-3xl text-green-500" />, // MongoDB
+        { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
+        { icon: <FaReact className="text-3xl text-blue-400" />, name: 'React' },
+        { icon: <SiVite className="text-3xl text-purple-600" />, name: 'Vite' },
+        { icon: <SiTailwindcss className="text-3xl text-blue-500" />, name: 'Tailwind' },
+        { icon: <FaNodeJs className="text-3xl text-green-600" />, name: 'Node.js' },
+        { icon: <SiMongodb className="text-3xl text-green-500" />, name: 'MongoDB' },
       ],
     },
     {
@@ -93,56 +94,63 @@ function Portfolio() {
       tech: [<FaHtml5 className="text-3xl text-orange-600" />, <FaReact className="text-3xl text-cyan-500" />, <FaJs className="text-3xl text-yellow-500" />],
     },
     // Otros proyectos...
-  ];
+  ], []);
 
   return (
-    <section
-      id="portfolio"
-      className="h-auto flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 text-white px-6 py-12"
-    >
-      <h1 className="text-4xl mb-8 text-center">Mi Portafolio</h1>
-      
-      {projects.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section id="portfolio" className="min-h-screen py-20 bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-white text-center mb-12">Mi Portafolio</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
-              <img src={project.image} alt={`Vista previa del proyecto ${project.name}`} className="w-full h-48 object-cover rounded-md mb-4" />
-              <h2 className="text-2xl text-gray-800 mb-2 text-center">{project.name}</h2>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300"
+            >
+              <img 
+                src={project.image} 
+                alt={project.name}
+                className="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{project.name}</h3>
+                
+                <div className="flex flex-wrap gap-3 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <div key={i} title={tech.name} className="tooltip">
+                      {tech.icon}
+                    </div>
+                  ))}
+                </div>
 
-              {/* Iconos de Tecnologías */}
-              <div className="flex gap-4 mb-4 justify-center">
-                {project.tech.map((icon, i) => (
-                  <div key={i}>{icon}</div>
-                ))}
+                <div className="flex justify-between mt-4">
+                  <a
+                    href={project.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <FaGithub className="inline mr-2" /> Código
+                  </a>
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-800 transition-colors"
+                  >
+                    Demo →
+                  </a>
+                </div>
               </div>
-
-              {/* Enlaces */}
-              <div className="flex gap-6 mb-4 justify-center">
-                <a
-                  href={project.repoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                  aria-label={`Ver repositorio del proyecto ${project.name}`}
-                >
-                  Repositorio
-                </a>
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-500 hover:underline"
-                  aria-label={`Ver sitio web del proyecto ${project.name}`}
-                >
-                  Ver Proyecto
-                </a>
-              </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      ) : (
-        <p className="text-lg text-center">No hay proyectos disponibles en este momento.</p>
-      )}
+      </div>
     </section>
   );
 }

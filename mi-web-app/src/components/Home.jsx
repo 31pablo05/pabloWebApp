@@ -74,8 +74,8 @@ function Home() {
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <source src="/src/assets/fondoome2.webm" type="video/webm" />
-          <source src="/src/assets/fondoome2.mp4" type="video/mp4" />
+          <source src="/mi-web-app/public/assets/fondoome2_1.webm" type="video/webm" />
+          <source src="/mi-web-app/public/assets/fondoome2.mp4" type="video/mp4" />
         </video>
       </div>
 
