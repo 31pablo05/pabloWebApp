@@ -6,69 +6,60 @@ import { motion, AnimatePresence } from 'framer-motion';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
+  // Detecta el scroll para cambiar el fondo del navbar
   const handleScroll = useCallback(() => {
     setScrolling(window.scrollY > 50);
   }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleResize = () => setIsLargeScreen(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [handleScroll]);
 
+  // Elementos del menú
   const menuItems = [
-    { 
-      id: 'home', 
-      icon: <FaHome />, 
-      label: 'Inicio',
-      offset: -70 // Ajusta este valor según la altura de tu navbar
-    },
-    { 
-      id: 'about', 
-      icon: <FaUser />, 
-      label: 'Sobre Mí',
-      offset: -70
-    },
-    { 
-      id: 'portfolio', 
-      icon: <FaBriefcase />, 
-      label: 'Portafolio',
-      offset: -70
-    },
-    { 
-      id: 'contact', 
-      icon: <FaEnvelope />, 
-      label: 'Contacto',
-      offset: -70
-    }
+    { id: 'inicio', icon: <FaHome />, label: 'Inicio', offset: -70 },
+    { id: 'quien-soy', icon: <FaUser />, label: 'Sobre Mí', offset: -70 },
+    { id: 'proyectos', icon: <FaBriefcase />, label: 'Proyectos', offset: -70 },
+    { id: 'contact', icon: <FaEnvelope />, label: 'Contacto', offset: -70 }
   ];
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolling 
-          ? 'bg-black/90 backdrop-blur-sm py-2' 
+          ? 'bg-gradient-to-r from-blue-700 to-violet-700 bg-opacity-90 backdrop-blur-sm py-2 shadow-md'
           : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo/Inicio - Ahora con función de scroll al top */}
-          <button
+          {/* Logo/Inicio con efecto de zoom al pasar el cursor */}
+          <motion.button
             onClick={scrollToTop}
-            className="text-2xl font-bold text-white cursor-pointer"
+            className="cursor-pointer"
+            whileHover={{ scale: 1.2 }} // Efecto de zoom al pasar el cursor
+            transition={{ type: 'spring', stiffness: 300 }}
           >
-            PP
-          </button>
+            <img
+              src="/assets/logowebp/logonuevo.png"
+              alt="Logo"
+              className="w-10 h-10"
+            />
+          </motion.button>
 
-          {/* Menú hamburguesa */}
+          {/* Botón menú hamburguesa (visible en móviles) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-white focus:outline-none"
@@ -83,15 +74,15 @@ function Navbar() {
 
           {/* Menú de navegación */}
           <AnimatePresence>
-            {(isOpen || window.innerWidth >= 1024) && (
+            {(isLargeScreen || isOpen) && (
               <motion.ul
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className={`${
-                  isOpen
-                    ? 'absolute top-full left-0 w-full bg-black/95'
-                    : 'hidden lg:flex'
+                  isLargeScreen 
+                    ? 'flex' 
+                    : 'absolute top-full left-0 w-full bg-gradient-to-r from-blue-800 to-violet-800 bg-opacity-95'
                 } lg:relative lg:w-auto lg:bg-transparent lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-8 p-4 lg:p-0`}
               >
                 {menuItems.map((item) => (
@@ -107,7 +98,7 @@ function Navbar() {
                       duration={500}
                       offset={item.offset}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors cursor-pointer"
+                      className="flex items-center space-x-2 text-white hover:text-violet-300 transition-colors cursor-pointer"
                     >
                       {item.icon}
                       <span>{item.label}</span>

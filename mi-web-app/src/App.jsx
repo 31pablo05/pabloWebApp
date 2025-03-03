@@ -1,19 +1,12 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import AboutMe from './components/AboutMe';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-// Lazy loading de componentes
-const Navbar = lazy(() => import('./components/Navbar'));
-const Home = lazy(() => import('./components/Home'));
-const About = lazy(() => import('./components/About'));
-const Portfolio = lazy(() => import('./components/Portfolio'));
-const Footer = lazy(() => import('./components/Footer'));
-
-// Componente de carga inline para evitar problemas de importación
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center h-screen bg-gray-900">
-    <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-blue-500"></div>
-  </div>
-);
 
 function App() {
   return (
@@ -24,23 +17,24 @@ function App() {
         exit={{ opacity: 0 }}
         className="bg-gradient-to-b from-gray-900 to-black min-h-screen"
       >
-        <Suspense fallback={<LoadingSpinner />}>
+       
           <Navbar />
           <main className="scroll-smooth">
-            <section id="home" className="min-h-screen pt-16">
-              <Home />
+            <section id="inicio" className="min-h-screen pt-16">
+              <Hero />
             </section>
-            <section id="about" className="min-h-screen pt-16">
-              <About />
+            <section id="quien-soy" className="min-h-screen pt-16">
+              <AboutMe />
             </section>
-            <section id="portfolio" className="min-h-screen pt-16">
-              <Portfolio />
+            <section id="proyectos" className="min-h-screen pt-16">
+              <Projects />
             </section>
             <section id="contact" className="pt-16">
-              <Footer />
+              <Contact />
             </section>
+            <Footer />
           </main>
-        </Suspense>
+        
       </motion.div>
     </AnimatePresence>
   );

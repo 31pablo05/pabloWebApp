@@ -1,27 +1,12 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@keyframes wave {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(0) translateX(0) rotate(25deg);  /* Rota a la izquierda */
-  }
-  50% {
-    transform: translateY(0) translateX(0) rotate(0deg);  /* Regresa a la posición original */
-  }
-  75% {
-    transform: translateY(0) translateX(0) rotate(25deg); /* Rota a la derecha */
-  }
-  100% {
-    transform: translateY(0) translateX(0) rotate(0deg);  /* Regresa a la posición original */
-  }
+/* Estilos globales */
+body {
+  margin: 0;
+  font-family: sans-serif;
 }
-
-.animate-wave {
-  animation: wave 3.5s ease-in-out infinite;  /* Duración ajustada */
-  transform-origin: bottom;  /* Establece el punto de rotación en la parte inferior del ícono */
+html {
+  scroll-behavior: smooth;
 }
