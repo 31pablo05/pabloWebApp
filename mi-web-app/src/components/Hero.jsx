@@ -68,6 +68,8 @@ const Hero = () => {
           loop
           muted
           playsInline
+          preload="auto"
+          poster="/assets/webp/fondoPoster.webp"
           onLoadedData={() => setIsVideoLoaded(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             isVideoLoaded ? 'opacity-100' : 'opacity-0'

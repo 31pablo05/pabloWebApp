@@ -87,12 +87,12 @@ const AboutMe = () => {
         {/* Sección de perfil y descripción */}
         <motion.div {...fadeIn} className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
           {/* Imagen de perfil con efecto hover */}
-          <div className="relative w-3/4 sm:w-1/2 lg:w-1/3 max-w-xs mx-auto lg:mx-0">
+          <div className="relative w-3/4 sm:w-1/2 lg:w-1/3 max-w-xs mx-auto lg:mx-0 rounded-lg">
             <motion.img
               whileHover={{ scale: 1.05 }}
               src="/assets/images webp/pabloperfil2.webp"
               alt="Foto de Pablo"
-              className="w-full h-auto object-cover border-4 border-gray-700 rounded-lg shadow-lg hover:shadow-[0px_0px_20px_rgba(55,146,153,0.8)] transition-all"
+              className="w-full h-auto object-cover  border-gray-700 rounded-lg shadow-lg hover:shadow-[0px_0px_20px_rgba(55,146,153,0.8)] transition-all"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity rounded-lg" />
           </div>
