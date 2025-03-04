@@ -62,14 +62,14 @@ const Hero = () => {
     >
       {/* Video de fondo con overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 " />
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          poster="/assets/webp/fondoPoster.webp"
+          poster="/assets/logowebp/logonuevo.png"
           onLoadedData={() => setIsVideoLoaded(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
