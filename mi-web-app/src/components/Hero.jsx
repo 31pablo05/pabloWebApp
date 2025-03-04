@@ -62,7 +62,7 @@ const Hero = () => {
     >
       {/* Video de fondo con overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-black opacity-80" />
         <video
           autoPlay
           loop
@@ -75,8 +75,8 @@ const Hero = () => {
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <source src="/assets/videos webm,mp4/fondoome2_1.webm" type="video/webm" />
-          <source src="/assets/videos webm,mp4/fondoome2.mp4" type="mp4" />
+          <source src="/assets/videos webm,mp4/fondo3.webm" type="video/webm" />
+          <source src="/assets/videos webm,mp4/fondo3.mp4" type="mp4" />
         </video>
       </div>
 
@@ -94,13 +94,13 @@ const Hero = () => {
           >
             👋
           </motion.span>
-          <h1 className="text-4xl md:text-7xl font-bold text-white">
+          <h1 className="text-glow text-4xl md:text-7xl font-bold bg-clip-text bg-gradient-to-r from-blue-800 to-purple-400 text-transparent">
             Hola, soy Pablo Proboste
           </h1>
         </motion.div>
         <motion.h2
           variants={itemVariants}
-          className="text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
+          className="text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-purple-400"
         >
           Diseñador y Desarrollador Web Frontend
         </motion.h2>
@@ -108,7 +108,7 @@ const Hero = () => {
         {/* Descripción */}
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
+          className="rounded-lg bg-gradient-to-r from-blue-400 to-purple-600 text-transparent text-shadow text-lg md:text-2xl text-white mb-8 max-w-2xl mx-auto "
         >
           Creando experiencias web únicas y memorables con pasión por el diseño y la innovación.
         </motion.p>
@@ -124,7 +124,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
+              className="text-shadow bg-gradient-to-r from-blue-500 to-purple-600 border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
             >
               Ver Proyectos
             </motion.button>
@@ -133,7 +133,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+              className="text-shadow bg-gradient-to-r from-blue-500 to-purple-600 border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
             >
               Contactar
             </motion.button>
@@ -143,7 +143,8 @@ const Hero = () => {
         {/* Redes sociales */}
         <motion.div
           variants={itemVariants}
-          className="flex justify-center gap-6"
+          className="flex justify-center gap-6 rounded-lg bg-gradient-to-r from-blue-400 to-purple-600 text-transparent text-shadow text-lg md:text-2xl text-white mb-8 max-w-2xl mx-auto"
+          
         >
           {socialLinks.map((link) => (
             <motion.a
@@ -153,9 +154,11 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
-              className={`text-white transition-colors duration-300 ${link.color}`}
+              className={`text-white drop-shadow-lg transition-colors duration-300 ${link.color}`}
               aria-label={`Visitar ${link.name}`}
+              
             >
+             
               {link.icon}
             </motion.a>
           ))}

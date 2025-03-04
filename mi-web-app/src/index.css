@@ -10,3 +10,16 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* En tu archivo global de CSS */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.text-outline {
+  -webkit-text-stroke: 1px white;
+}
+.text-glow {
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.2),
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 15px rgba(255, 255, 255, 0.2);
+}
