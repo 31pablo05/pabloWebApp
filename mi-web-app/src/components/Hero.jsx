@@ -94,13 +94,13 @@ const Hero = () => {
           >
             👋
           </motion.span>
-          <h1 className="text-glow text-4xl md:text-7xl font-bold bg-clip-text bg-gradient-to-r from-blue-800 to-purple-400 text-transparent">
+          <h1 className="text-glow text-4xl md:text-7xl font-bold bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400 text-transparent">
             Hola, soy Pablo Proboste
           </h1>
         </motion.div>
         <motion.h2
           variants={itemVariants}
-          className="text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-purple-400"
+          className="text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400"
         >
           Diseñador y Desarrollador Web Frontend
         </motion.h2>
