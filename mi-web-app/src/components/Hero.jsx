@@ -106,13 +106,12 @@ const Hero = () => {
         </motion.h2>
 
         {/* Descripción */}
-        <motion.p
-          variants={itemVariants}
-          className="rounded-lg bg-gradient-to-r from-blue-400 to-purple-600 text-transparent text-shadow text-lg md:text-2xl text-white mb-8 max-w-2xl mx-auto "
-        >
-          Creando experiencias web únicas y memorables con pasión por el diseño y la innovación.
-        </motion.p>
-
+<motion.p
+  variants={itemVariants}
+  className="rounded-lg bg-black bg-opacity-50 text-transparent text-shadow text-lg md:text-2xl text-white mb-8 max-w-2xl mx-auto text-justify"
+>
+  Creando experiencias web únicas y memorables con pasión por el diseño y la innovación.
+</motion.p>
 
 
         {/* Botones de acción */}
