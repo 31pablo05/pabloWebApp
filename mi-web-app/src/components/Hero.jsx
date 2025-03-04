@@ -75,8 +75,8 @@ const Hero = () => {
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <source src="/assets/videos webm,mp4/Diseño sin título.gif" type="video/webm" />
-          <source src="/assets/videos webm,mp4/Diseño sin título.gif" type="GIF" />
+          <source src="/assets/videos webm,mp4/fondoome2_1.webm" type="video/webm" />
+          <source src="/assets/videos webm,mp4/fondoome2.mp4" type="mp4" />
         </video>
       </div>
 
