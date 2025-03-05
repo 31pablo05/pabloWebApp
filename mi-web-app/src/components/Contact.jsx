@@ -19,7 +19,8 @@ function Contact() {
     e.preventDefault();
     const { nombre, correo, mensaje } = formData;
     const mensajeWhatsApp = `Hola, me llamo ${nombre} y mi correo es ${correo}. Quiero consultar sobre: ${mensaje}`;
-    const url = `https://wa.me/1234567890?text=${encodeURIComponent(mensajeWhatsApp)}`;
+    // Reemplaza el número de celular por el tuyo en formato internacional sin el signo "+"
+    const url = `https://wa.me/542804389134?text=${encodeURIComponent(mensajeWhatsApp)}`;
     window.open(url, '_blank');
   };
 
@@ -32,54 +33,54 @@ function Contact() {
           {/* Información de contacto */}
           <div className="w-full md:w-1/2 text-white">
             <h3 className="text-2xl font-semibold mb-4">Información de Contacto</h3>
-            <p className="mb-2">📍 Dirección: Calle Ficticia 123, Ciudad, País</p>
-            <p className="mb-2">📞 Teléfono: (123) 456-7890</p>
-            <p className="mb-2">✉️ Correo: contacto@ejemplo.com</p>
+            <p className="mb-2">📍 Dirección: Brown 311, Trelew, Chubut, Argentina</p>
+            <p className="mb-2">📞 Celular: +54 2804389134</p>
+            <p className="mb-2">✉️ Correo: pabloproboste64@gmail.com</p>
           </div>
 
           {/* Formulario de contacto */}
           <div className="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold mb-4">Envíanos un Mensaje</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800">Envíanos un Mensaje</h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="nombre" className="block text-gray-700">Nombre</label>
+                <label htmlFor="nombre" className="block text-gray-700 font-medium">Nombre</label>
                 <input
                   type="text"
                   id="nombre"
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1"
+                  className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="correo" className="block text-gray-700">Correo Electrónico</label>
+                <label htmlFor="correo" className="block text-gray-700 font-medium">Correo Electrónico</label>
                 <input
                   type="email"
                   id="correo"
                   name="correo"
                   value={formData.correo}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1"
+                  className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="mensaje" className="block text-gray-700">Mensaje</label>
+                <label htmlFor="mensaje" className="block text-gray-700 font-medium">Mensaje</label>
                 <textarea
                   id="mensaje"
                   name="mensaje"
                   value={formData.mensaje}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1"
+                  className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   rows="4"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700 transition-colors"
+                className="w-full bg-green-600 text-white py-3 px-8 rounded-lg shadow-lg transition-all transform hover:bg-green-700 hover:scale-105"
               >
                 Enviar Mensaje
               </button>
@@ -92,4 +93,3 @@ function Contact() {
 }
 
 export default Contact;
-
