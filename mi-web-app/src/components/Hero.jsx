@@ -90,17 +90,17 @@ const Hero = () => {
           <motion.span
             animate={{ rotate: [0, 20, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-            className="text-5xl"
+            className="mt-[-40px] text-5xl"
           >
             👋
           </motion.span>
-          <h1 className="text-glow text-4xl md:text-7xl font-bold bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400 text-transparent">
+          <h1 className="mt-[-40px] text-glow text-4xl md:text-7xl font-bold bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400 text-transparent">
             Hola, soy Pablo Proboste
           </h1>
         </motion.div>
         <motion.h2
           variants={itemVariants}
-          className="text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400"
+          className=" text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400"
         >
           Diseñador y Desarrollador Web Frontend
         </motion.h2>
@@ -108,7 +108,7 @@ const Hero = () => {
         {/* Descripción */}
 <motion.p
   variants={itemVariants}
-  className="rounded-lg bg-black bg-opacity-50 text-transparent text-shadow text-lg md:text-2xl text-white mb-8 max-w-2xl mx-auto text-justify"
+  className="rounded-lg bg-black bg-opacity-50 text-transparent text-shadow text-lg md:text-2xl text-white mb-40 max-w-2xl mx-auto text-justify"
 >
   Creando experiencias web únicas y memorables con pasión por el diseño y la innovación.
 </motion.p>
