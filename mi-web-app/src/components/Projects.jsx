@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
+import CardsProjects from './CardsProjects';
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from "react-icons/fa";
 import { SiVite, SiTailwindcss, SiMongodb } from "react-icons/si";
-import { motion } from 'framer-motion';
 
 function Projects() {
   const projects = useMemo(() => [
     {
       name: 'Tienda Online',
-      image: '/Captura.png', // imagen en public/
+      video: '/videos/tienda-online.mp4', // Ruta al video en public/videos/
       repoLink: 'https://github.com/31pablo05/MaestraPatagonica',
       liveLink: 'https://maestra-patagonica.vercel.app/',
       tech: [
@@ -21,7 +21,7 @@ function Projects() {
     },
     {
       name: 'Landing Page chacra PichiRayen',
-      image: '/pichirayen.webp',
+      video: '/videos/landing-page.mp4',
       repoLink: 'https://github.com/tuusuario/landing-page',
       liveLink: 'https://pichi-rayen.vercel.app/',
       tech: [
@@ -33,7 +33,7 @@ function Projects() {
     },
     {
       name: 'Web App Nutricionista',
-      image: '/nutricionista.png',
+      video: '/videos/nutricionista.mp4',
       repoLink: 'https://github.com/31pablo05/PamelaWeissberg',
       liveLink: 'https://pamela-weissberg.vercel.app/',
       tech: [
@@ -45,7 +45,7 @@ function Projects() {
     },
     {
       name: 'app pedidos panes y prepizzas',
-      image: '/appPedidos.webp',
+      video: '/videos/app-pedidos.mp4',
       repoLink: 'https://github.com/tuusuario/travel-blog',
       liveLink: 'https://tuusuario.github.io/travel-blog',
       tech: [
@@ -58,7 +58,7 @@ function Projects() {
     },
     {
       name: 'Portfolio Profesional',
-      image: '/portfolio.png',
+      video: '/videos/portfolio.mp4',
       repoLink: 'https://github.com/31pablo05/fede.F',
       liveLink: 'https://fede-f.vercel.app/',
       tech: [
@@ -69,20 +69,20 @@ function Projects() {
       ],
     },
     {
-      name: 'app turnos medicos',
-      image: '/admin-dashboard-image.png',
-      repoLink: 'https://github.com/tuusuario/admin-dashboard',
-      liveLink: 'https://tuusuario.github.io/admin-dashboard',
+      name: 'App web Osteopatia',
+      video: '/assets/videos webm,mp4/videosProjects/WebOsteopatia.webm',
+      repoLink: 'https://github.com/31pablo05/appFranciscoTorres',
+      liveLink: 'https://app-francisco-torres.vercel.app/',
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
-        { icon: <FaCss3Alt className="text-3xl text-blue-600" />, name: 'CSS3' },
-        { icon: <FaJs className="text-3xl text-yellow-500" />, name: 'JavaScript' },
+        { icon: <SiTailwindcss className="text-3xl text-blue-600" />, name: 'Tailwind' },
+        { icon: <SiVite className="text-3xl text-purple-600" />, name: 'Vite' },
         { icon: <FaReact className="text-3xl text-cyan-500" />, name: 'React' }
       ],
     },
     {
       name: 'Aplicación de Tareas',
-      image: '/todolist-app-image.png',
+      video: '/videos/todolist-app.mp4',
       repoLink: 'https://github.com/tuusuario/todolist-app',
       liveLink: 'https://tuusuario.github.io/todolist-app',
       tech: [
@@ -93,7 +93,7 @@ function Projects() {
     },
     {
       name: 'app web convertidor de formatos y descarga de videos a mp3',
-      image: '/ecommerce-image.png',
+      video: '/videos/ecommerce.mp4',
       repoLink: 'https://github.com/tuusuario/ecommerce-react',
       liveLink: 'https://tuusuario.github.io/ecommerce-react',
       tech: [
@@ -112,51 +112,7 @@ function Projects() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300"
-            >
-              <img 
-                src={project.image} 
-                alt={project.name}
-                className="w-full h-48 object-cover"
-                loading="lazy"
-              />
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">{project.name}</h3>
-                
-                <div className="flex flex-wrap gap-3 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <div key={i} title={tech.name} className="tooltip">
-                      {tech.icon}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex justify-between mt-4">
-                  <a
-                    href={project.repoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <FaGithub className="inline mr-2" /> Código
-                  </a>
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-600 hover:text-green-800 transition-colors"
-                  >
-                    Demo →
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+            <CardsProjects key={index} project={project} index={index} />
           ))}
         </div>
       </div>

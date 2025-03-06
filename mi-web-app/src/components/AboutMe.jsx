@@ -79,16 +79,16 @@ const AboutMe = () => {
       icon: <IoCodeSlashOutline className="text-4xl mb-4" />,
       content: (
         <div className="flex flex-wrap gap-2">
-          <FaHtml5 className="text-2xl text-orange-500" title="HTML5" />
-          <FaCss3Alt className="text-2xl text-blue-500" title="CSS3" />
-          <FaJs className="text-2xl text-yellow-400" title="JavaScript" />
-          <FaReact className="text-2xl text-blue-400" title="React" />
-          <SiVite className="text-2xl text-purple-500" title="Vite" />
-          <SiTailwindcss className="text-2xl text-cyan-400" title="Tailwind CSS" />
-          <FaGithub className="text-2xl text-gray-300" title="GitHub" />
-          <SiPython className="text-2xl text-yellow-300" title="Python" />
-          <FaNodeJs className="text-2xl text-green-500" title="Node.js" />
-          <SiMongodb className="text-2xl text-green-500" title="MongoDB" />
+          <FaHtml5 className="text-6xl text-orange-500" title="HTML5" />
+          <FaCss3Alt className="text-6xl text-blue-500" title="CSS3" />
+          <FaJs className="text-6xl text-yellow-400" title="JavaScript" />
+          <FaReact className="text-6xl text-blue-400" title="React" />
+          <SiVite className="text-6xl text-purple-500" title="Vite" />
+          <SiTailwindcss className="text-6xl text-cyan-400" title="Tailwind CSS" />
+          <FaGithub className="text-6xl text-white-300" title="GitHub" />
+          <SiPython className="text-6xl text-yellow-300" title="Python" />
+          <FaNodeJs className="text-6xl text-green-500" title="Node.js" />
+          <SiMongodb className="text-6xl text-green-500" title="MongoDB" />
         </div>
       )
     }
