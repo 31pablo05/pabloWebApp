@@ -14,8 +14,9 @@ function CardsProjects({ project, index }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
+      className="bg-white rounded-lg overflow-hidden shadow-lg"
     >
       {/* Video del proyecto */}
       <video
@@ -31,8 +32,21 @@ function CardsProjects({ project, index }) {
       
       {/* Contenido de la tarjeta */}
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">{project.name}</h3>
-        
+        {/* Título y barra de progreso */}
+        <div className="mb-4">
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.name}</h3>
+          <div className="relative w-full h-2 bg-gray-200 rounded-full">
+            <div
+              className="absolute left-0 top-0 h-full bg-green-500 rounded-full"
+              style={{ width: `${project.completionPercentage}%` }}
+            ></div>
+          </div>
+          <p className="text-sm text-gray-600 mt-1">
+            {project.completionPercentage === 100 ? "Finalizado" : `Progreso: ${project.completionPercentage}%`}
+          </p>
+        </div>
+
+        {/* Tecnologías utilizadas */}
         <div className="flex flex-wrap gap-3 mb-4">
           {project.tech.map((tech, i) => (
             <div key={i} title={tech.name} className="tooltip">
@@ -41,6 +55,7 @@ function CardsProjects({ project, index }) {
           ))}
         </div>
 
+        {/* Enlaces */}
         <div className="flex justify-between mt-4">
           <a
             href={project.repoLink}

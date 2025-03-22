@@ -33,9 +33,10 @@ function Projects() {
     },
     {
       name: 'Web App Nutricionista',
-      video: '/videos/nutricionista.mp4',
+      video: '/assets/videos webm,mp4/videosProjects/web Nutricionista.mp4',
       repoLink: 'https://github.com/31pablo05/PamelaWeissberg',
       liveLink: 'https://pamela-weissberg.vercel.app/',
+      completionPercentage: 60,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
         { icon: <FaReact className="text-3xl text-cyan-500" />, name: 'React' },
@@ -45,9 +46,10 @@ function Projects() {
     },
     {
       name: 'app pedidos panes y prepizzas',
-      video: '/videos/app-pedidos.mp4',
-      repoLink: 'https://github.com/tuusuario/travel-blog',
-      liveLink: 'https://tuusuario.github.io/travel-blog',
+      video: '/assets/videos webm,mp4/videosProjects/appPedidos.mp4',
+      repoLink: 'https://github.com/31pablo05/Prepizzas',
+      liveLink: 'https://prepizzas.vercel.app/',
+      completionPercentage: 100,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
         { icon: <FaCss3Alt className="text-3xl text-blue-600" />, name: 'CSS3' },
@@ -57,10 +59,11 @@ function Projects() {
       ],
     },
     {
-      name: 'Portfolio Profesional',
-      video: '/videos/portfolio.mp4',
+      name: 'Web App Federico Fotografía y Video',
+      video: '/assets/videos webm,mp4/videosProjects/web fotografo.mp4',
       repoLink: 'https://github.com/31pablo05/fede.F',
       liveLink: 'https://fede-f.vercel.app/',
+      completionPercentage: 100,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
         { icon: <SiTailwindcss className="text-3xl text-blue-600" />, name: 'Tailwind' },
@@ -73,6 +76,7 @@ function Projects() {
       video: '/assets/videos webm,mp4/videosProjects/WebOsteopatia.webm',
       repoLink: 'https://github.com/31pablo05/appFranciscoTorres',
       liveLink: 'https://app-francisco-torres.vercel.app/',
+      completionPercentage: 100,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
         { icon: <SiTailwindcss className="text-3xl text-blue-600" />, name: 'Tailwind' },
