@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react';
 import CardsProjects from './CardsProjects';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from "react-icons/fa";
-import { SiVite, SiTailwindcss, SiMongodb } from "react-icons/si";
+import { SiVite, SiTailwindcss, SiMongodb, SiRender } from "react-icons/si";
 
 function Projects() {
   const projects = useMemo(() => [
     {
-      name: 'Tienda Online',
-      video: '/videos/tienda-online.mp4', // Ruta al video en public/videos/
+      name: 'Maestra Patagónica Tienda de recursos educativos',
+      video: '/assets/videos webm,mp4/videosProjects/maestra-patagonica.mp4', // Ruta al video en public/videos/
       repoLink: 'https://github.com/31pablo05/MaestraPatagonica',
       liveLink: 'https://maestra-patagonica.vercel.app/',
+      completionPercentage: 30,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
         { icon: <FaReact className="text-3xl text-blue-400" />, name: 'React' },
@@ -17,18 +18,22 @@ function Projects() {
         { icon: <SiTailwindcss className="text-3xl text-blue-500" />, name: 'Tailwind' },
         { icon: <FaNodeJs className="text-3xl text-green-600" />, name: 'Node.js' },
         { icon: <SiMongodb className="text-3xl text-green-500" />, name: 'MongoDB' },
+        
       ],
     },
     {
-      name: 'Landing Page chacra PichiRayen',
-      video: '/videos/landing-page.mp4',
-      repoLink: 'https://github.com/tuusuario/landing-page',
-      liveLink: 'https://pichi-rayen.vercel.app/',
+      name: 'SPA Chacra PichiRayen',
+      video: '/assets/videos webm,mp4/videosProjects/VIDEOSPA.mp4',
+      repoLink: 'https://github.com/31pablo05/PichiRayen',
+      liveLink: 'https://pichi-rayen-swpt.vercel.app/',
+      completionPercentage: 100,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
-        { icon: <FaCss3Alt className="text-3xl text-blue-600" />, name: 'CSS3' },
+        { icon: <SiTailwindcss className="text-3xl text-blue-500" />, name: 'Tailwind' },
         { icon: <FaJs className="text-3xl text-yellow-500" />, name: 'JavaScript' },
-        { icon: <FaReact className="text-3xl text-cyan-500" />, name: 'React' }
+        { icon: <FaReact className="text-3xl text-cyan-500" />, name: 'React' },
+        { icon: <SiVite className="text-3xl text-purple-600" />, name: 'Vite' },
+        
       ],
     },
     {
@@ -52,10 +57,13 @@ function Projects() {
       completionPercentage: 100,
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
-        { icon: <FaCss3Alt className="text-3xl text-blue-600" />, name: 'CSS3' },
+        { icon: <SiTailwindcss className="text-3xl text-blue-500" />, name: 'Tailwind' },
         { icon: <FaJs className="text-3xl text-yellow-500" />, name: 'JavaScript' },
+        { icon: <FaReact className="text-3xl text-cyan-500" />, name: 'React' },
+        { icon: <SiVite className="text-3xl text-purple-600" />, name: 'Vite' },
         { icon: <FaNodeJs className="text-3xl text-green-600" />, name: 'Node.js' },
-        { icon: <SiMongodb className="text-3xl text-green-500" />, name: 'MongoDB' },
+        { icon: <SiRender className="text-3xl text-black-500" />, name: 'Render' }
+
       ],
     },
     {
@@ -80,6 +88,7 @@ function Projects() {
       tech: [
         { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
         { icon: <SiTailwindcss className="text-3xl text-blue-600" />, name: 'Tailwind' },
+        { icon: <FaJs className="text-3xl text-yellow-500" />, name: 'JavaScript' },
         { icon: <SiVite className="text-3xl text-purple-600" />, name: 'Vite' },
         { icon: <FaReact className="text-3xl text-cyan-500" />, name: 'React' }
       ],
