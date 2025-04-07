@@ -26,14 +26,14 @@ const MaestraPatagonica = () => {
       <div className="relative h-64">
         {!loaded && (
           <img
-            src="/assets/images/placeholder.jpg" // Imagen de precarga
+            src="/assets/images webp/maestrapatcaptura.webp" // Imagen de precarga
             alt="Cargando..."
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
         <video
           src={project.video}
-          poster="/assets/images/placeholder.jpg"
+          poster="/assets/images webp/maestrapatcaptura.webp"
           autoPlay
           loop
           muted
