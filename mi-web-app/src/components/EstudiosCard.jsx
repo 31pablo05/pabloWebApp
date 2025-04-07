@@ -295,7 +295,7 @@ const EstudiosCard = () => {
           {certifications.length > summaryCount && (
             <button
               onClick={openFullListModal}
-              className="mt-2 inline-block bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition-all text-sm"
+              className="mt-2 inline-block bg-gradient-to-r from-blue-500 to-purple-600  hover:bg-blue-600 text-white py-1 px-3 rounded transition-all text-sm"
             >
               Ver todas las certificaciones
             </button>

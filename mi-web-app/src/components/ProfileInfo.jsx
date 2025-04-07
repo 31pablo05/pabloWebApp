@@ -23,12 +23,12 @@ const ProfileInfo = () => {
 
       {/* Información principal */}
       <motion.div {...fadeIn} className="info flex-1 space-y-4">
-        <h2 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
           ¡Hola, soy Pablo!
         </h2>
         <div className="text-lg text-justify lg:text-left leading-relaxed">
           <p>
-            Soy un desarrollador web autodidacta de 32 años, radicado en Trelew, Chubut, en el corazón de la Patagonia argentina. Durante los últimos dos años, he invertido en mi crecimiento profesional a través de cursos y certificaciones en plataformas como Coursera y Google –con formaciones dictadas por Meta e IBM–, contenidos en YouTube y, por supuesto, utilizando herramientas de inteligencia artificial como ChatGPT para explorar y dominar nuevas tecnologías.
+            Soy un desarrollador web autodidacta de 32 años, radicado en Trelew, Chubut, en el corazón de la Patagonia argentina. Durante los últimos dos años, he invertido en mi crecimiento profesional a través de cursos y certificaciones en plataformas como Coursera y Google con formaciones dictadas por Meta e IBM, contenidos en YouTube y, por supuesto, utilizando herramientas de inteligencia artificial como ChatGPT para explorar y dominar nuevas tecnologías.
           </p>
           <p>
             Mi pasión se centra en el desarrollo de web apps y en el diseño detallado de páginas, combinando estética y funcionalidad. Trabajo con React, JSX, JavaScript, CSS y Tailwind CSS, y utilizo herramientas como Vite y npm para gestionar mis proyectos y optimizar su rendimiento, lo que contribuye a una mejor experiencia del usuario y, en consecuencia, puede favorecer el SEO.

@@ -23,7 +23,7 @@ const PerfilCard = () => {
         </p>
         <a 
           href="#portfolio" 
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-all"
+          className="inline-block bg-gradient-to-r from-blue-500 to-purple-600  hover:bg-blue-600 text-white py-2 px-4 rounded transition-all"
         >
           Ver Mi Portfolio
         </a>

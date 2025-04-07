@@ -80,7 +80,7 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-3 px-8 rounded-lg shadow-lg transition-all transform hover:bg-green-700 hover:scale-105"
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-8 rounded-lg shadow-lg transition-all transform hover:bg-green-700 hover:scale-105"
               >
                 Enviar Mensaje
               </button>

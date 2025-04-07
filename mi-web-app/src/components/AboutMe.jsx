@@ -36,7 +36,7 @@ const AboutMe = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="mailto:pabloproboste64@gmail.com"
-            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
+            className="bg-gradient-to-r from-blue-500 to-purple-600  text-white py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
           >
             <span>📧</span> Contáctame
           </motion.a>
@@ -45,7 +45,7 @@ const AboutMe = () => {
             whileTap={{ scale: 0.95 }}
             href="/assets/Currículum Vitae castellano (2).pdf"
             download="CV_Pablo_Proboste.pdf"
-            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
+            className="bg-gradient-to-r from-blue-500 to-purple-600  text-white py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
           >
             <span>📄</span> Descargar CV
           </motion.a>

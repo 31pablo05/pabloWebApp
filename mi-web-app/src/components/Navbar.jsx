@@ -53,7 +53,7 @@ function Navbar() {
             transition={{ type: 'spring', stiffness: 300 }}
           >
             <img
-              src="/assets/logowebp/logonuevo.png"
+              src="/assets/logowebp/logonuevo.webp"
               alt="Logo"
               className="w-10 h-10"
             />
