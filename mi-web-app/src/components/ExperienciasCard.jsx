@@ -23,7 +23,7 @@ const ExperienciasCard = () => {
         <SiVite className="text-6xl text-purple-500" title="Vite" />
         <SiTailwindcss className="text-6xl text-cyan-400" title="Tailwind CSS" />
         <FaGithub className="text-6xl text-white-300" title="GitHub" />
-        <SiPython className="text-6xl text-yellow-300" title="Python" />
+        
         <FaNodeJs className="text-6xl text-green-500" title="Node.js" />
         <SiMongodb className="text-6xl text-green-500" title="MongoDB" />
       </div>

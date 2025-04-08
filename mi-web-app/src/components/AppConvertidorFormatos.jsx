@@ -6,7 +6,7 @@ const AppConvertidorFormatos = () => {
   const [loaded, setLoaded] = useState(false);
 
   const project = {
-    name: 'app web convertidor de formatos y descarga de videos a mp3',
+    name: 'Web app convertidor de videos a mp3',
     video: '/videos/ecommerce.mp4',
     repoLink: 'https://github.com/tuusuario/ecommerce-react',
     liveLink: 'https://tuusuario.github.io/ecommerce-react',

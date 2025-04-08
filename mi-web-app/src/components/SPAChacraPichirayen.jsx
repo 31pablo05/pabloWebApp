@@ -11,6 +11,8 @@ const SPAChacraPichirayen = () => {
     video: '/assets/videos webm,mp4/videosProjects/VIDEOSPA.mp4',
     repoLink: 'https://github.com/31pablo05/PichiRayen',
     liveLink: 'https://pichi-rayen-swpt.vercel.app/',
+    // Valor del porcentaje de completado
+    progress: 100,
     tech: [
       { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
       { icon: <SiTailwindcss className="text-3xl text-blue-500" />, name: 'Tailwind' },
@@ -42,6 +44,17 @@ const SPAChacraPichirayen = () => {
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+        
+          {/* Barra de progreso estilizada */}
+          <div className="w-full bg-gray-300 rounded-full h-4 mb-4 shadow-inner overflow-hidden">
+          <div
+            className="bg-gradient-to-r from-blue-500 to-purple-600 h-full text-center text-xs text-white font-bold transition-all duration-1000 ease-out flex items-center justify-center"
+            style={{ width: `${project.progress}%` }}
+          >
+            {project.progress}%
+          </div>
+        </div>
+
         <div className="flex space-x-2 mb-4">
           {project.tech.map((tech, idx) => (
             <div key={idx} title={tech.name}>

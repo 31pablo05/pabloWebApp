@@ -11,13 +11,15 @@ const MaestraPatagonica = () => {
     video: '/assets/videos webm,mp4/videosProjects/maestra-patagonica.mp4',
     repoLink: 'https://github.com/31pablo05/MaestraPatagonica',
     liveLink: 'https://maestra-patagonica.vercel.app/',
+    // Valor del porcentaje de completado
+    progress: 30,
     tech: [
       { icon: <FaHtml5 className="text-3xl text-orange-600" />, name: 'HTML5' },
       { icon: <FaReact className="text-3xl text-blue-400" />, name: 'React' },
       { icon: <SiVite className="text-3xl text-purple-600" />, name: 'Vite' },
       { icon: <SiTailwindcss className="text-3xl text-blue-500" />, name: 'Tailwind' },
       { icon: <FaNodeJs className="text-3xl text-green-600" />, name: 'Node.js' },
-      { icon: <SiMongodb className="text-3xl text-green-500" />, name: 'MongoDB' },
+     
     ],
   };
 
@@ -43,6 +45,17 @@ const MaestraPatagonica = () => {
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+        
+          {/* Barra de progreso estilizada */}
+          <div className="w-full bg-gray-300 rounded-full h-4 mb-4 shadow-inner overflow-hidden">
+          <div
+            className="bg-gradient-to-r from-blue-500 to-purple-600 h-full text-center text-xs text-white font-bold transition-all duration-1000 ease-out flex items-center justify-center"
+            style={{ width: `${project.progress}%` }}
+          >
+            {project.progress}%
+          </div>
+        </div>
+
         <div className="flex space-x-2 mb-4">
           {project.tech.map((tech, idx) => (
             <div key={idx} title={tech.name}>

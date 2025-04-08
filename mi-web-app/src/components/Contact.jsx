@@ -25,62 +25,109 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20 bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800">
+    <section
+      id="contact"
+      className="min-h-screen py-20 bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-white text-center mb-12">Contacto</h2>
 
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Información de contacto */}
-          <div className="w-full md:w-1/2 text-white">
-            <h3 className="text-2xl font-semibold mb-4">Información de Contacto</h3>
-            <p className="mb-2">📍 Dirección: Brown 311, Trelew, Chubut, Argentina</p>
-            <p className="mb-2">📞 Celular: +54 2804389134</p>
-            <p className="mb-2">✉️ Correo: pabloproboste64@gmail.com</p>
+          <div className="w-full md:w-1/2 text-white space-y-4">
+            <h3 className="text-2xl font-semibold">Información de Contacto</h3>
+            <p>📍 Dirección: Brown 311, Trelew, Chubut, Argentina</p>
+            <p>📞 Celular: +54 2804389134</p>
+            <p>✉️ Correo: pabloproboste64@gmail.com</p>
+
+            {/* Sección para contratación mediante plataformas */}
+            <div className="mt-8 p-6 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+              <h4 className="text-xl font-bold mb-3 border-b border-gray-300 pb-1">
+                ¡Contrátame a través de plataformas!
+              </h4>
+              <p className="mb-4 text-sm">
+                También puedes contratar mis servicios mediante plataformas de freelancing como{' '}
+                <a
+                  href="https://www.fiverr.com/tu_usuario"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
+                >
+                  Fiverr
+                </a>{' '}
+                o{' '}
+                <a
+                  href="https://www.freelancer.com/u/tu_usuario"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
+                >
+                  Freelancer
+                </a>
+                <a
+                  href="https://www.freelancer.com/u/tu_usuario"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
+                >
+                 ,  Upwork
+                </a>
+                . Estas plataformas actúan como mediadores, brindando seguridad en la contratación; o si lo prefieres, podemos coordinar un contrato particular.
+              </p>
+            </div>
           </div>
 
           {/* Formulario de contacto */}
-          <div className="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold mb-4 text-gray-800">Envíanos un Mensaje</h3>
+          <div className="w-full md:w-1/2 bg-white p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:scale-105">
+            <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+              Envíanos un Mensaje
+            </h3>
             <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label htmlFor="nombre" className="block text-gray-700 font-medium">Nombre</label>
+              <div className="mb-5">
+                <label htmlFor="nombre" className="block text-gray-700 font-medium mb-1">
+                  Nombre
+                </label>
                 <input
                   type="text"
                   id="nombre"
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   required
                 />
               </div>
-              <div className="mb-4">
-                <label htmlFor="correo" className="block text-gray-700 font-medium">Correo Electrónico</label>
+              <div className="mb-5">
+                <label htmlFor="correo" className="block text-gray-700 font-medium mb-1">
+                  Correo Electrónico
+                </label>
                 <input
                   type="email"
                   id="correo"
                   name="correo"
                   value={formData.correo}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   required
                 />
               </div>
-              <div className="mb-4">
-                <label htmlFor="mensaje" className="block text-gray-700 font-medium">Mensaje</label>
+              <div className="mb-5">
+                <label htmlFor="mensaje" className="block text-gray-700 font-medium mb-1">
+                  Mensaje
+                </label>
                 <textarea
                   id="mensaje"
                   name="mensaje"
                   value={formData.mensaje}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   rows="4"
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-8 rounded-lg shadow-lg transition-all transform hover:bg-green-700 hover:scale-105"
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
               >
                 Enviar Mensaje
               </button>

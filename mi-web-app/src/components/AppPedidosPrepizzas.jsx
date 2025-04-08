@@ -1,4 +1,3 @@
-// AppPedidosPrepizzas.jsx
 import React, { useState } from 'react';
 import { FaHtml5, FaReact, FaNodeJs } from 'react-icons/fa';
 import { SiTailwindcss, SiVite, SiRender } from 'react-icons/si';
@@ -8,7 +7,7 @@ const AppPedidosPrepizzas = () => {
   const [loaded, setLoaded] = useState(false);
 
   const project = {
-    name: 'app pedidos panes y prepizzas',
+    name: 'Web app prepizzas',
     video: '/assets/videos webm,mp4/videosProjects/appPedidos.mp4',
     repoLink: 'https://github.com/31pablo05/Prepizzas',
     liveLink: 'https://prepizzas.vercel.app/',
@@ -21,6 +20,8 @@ const AppPedidosPrepizzas = () => {
       { icon: <FaNodeJs className="text-3xl text-green-600" />, name: 'Node.js' },
       { icon: <SiRender className="text-3xl text-black" />, name: 'Render' },
     ],
+    // Valor del porcentaje de completado (en este caso al 100%)
+    progress: 100,
   };
 
   return (
@@ -45,6 +46,16 @@ const AppPedidosPrepizzas = () => {
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+  {/* Barra de progreso estilizada */}
+  <div className="w-full bg-gray-300 rounded-full h-4 mb-4 shadow-inner overflow-hidden">
+          <div
+            className="bg-gradient-to-r from-blue-500 to-purple-600 h-full text-center text-xs text-white font-bold transition-all duration-1000 ease-out flex items-center justify-center"
+            style={{ width: `${project.progress}%` }}
+          >
+            {project.progress}%
+          </div>
+        </div>
+
         <div className="flex space-x-2 mb-4">
           {project.tech.map((tech, idx) => (
             <div key={idx} title={tech.name}>
