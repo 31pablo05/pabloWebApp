@@ -45,7 +45,7 @@ function Contact() {
               <h4 className="text-xl font-bold mb-3 border-b border-gray-300 pb-1">
                 ¡Contrátame a través de plataformas!
               </h4>
-              <p className="mb-4 text-sm">
+              <p className="mb-4 text-sm text-black">
                 También puedes contratar mis servicios mediante plataformas de freelancing como{' '}
                 <a
                   href="https://www.fiverr.com/tu_usuario"
@@ -54,8 +54,8 @@ function Contact() {
                   className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
                 >
                   Fiverr
-                </a>{' '}
-                o{' '}
+                </a>
+                {', '}
                 <a
                   href="https://www.freelancer.com/u/tu_usuario"
                   target="_blank"
@@ -64,13 +64,15 @@ function Contact() {
                 >
                   Freelancer
                 </a>
+                {', '}
+                y{' '}
                 <a
-                  href="https://www.freelancer.com/u/tu_usuario"
+                  href="https://www.upwork.com/freelancers/~tu_usuario"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
                 >
-                 ,  Upwork
+                  Upwork
                 </a>
                 . Estas plataformas actúan como mediadores, brindando seguridad en la contratación; o si lo prefieres, podemos coordinar un contrato particular.
               </p>

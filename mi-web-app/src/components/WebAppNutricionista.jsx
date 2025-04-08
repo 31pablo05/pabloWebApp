@@ -20,7 +20,7 @@ const WebAppNutricionista = () => {
       { icon: <FaJs className="text-3xl text-yellow-500" />, name: 'JavaScript' },
     ],
   };
-
+  const progressStatus = project.progress === 100 ? 'Finalizado' : 'En producción';
   return (
     <div className="card relative bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="relative h-64">
@@ -43,6 +43,10 @@ const WebAppNutricionista = () => {
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+         {/* Estado del progreso arriba de la barra */}
+         <p className="text-sm text-gray-600 mb-1 font-semibold">
+          Estado: <span className="text-gray-800">{progressStatus}</span>
+        </p>
         
          {/* Barra de progreso estilizada */}
          <div className="w-full bg-gray-300 rounded-full h-4 mb-4 shadow-inner overflow-hidden">
