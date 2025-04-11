@@ -48,7 +48,7 @@ function Contact() {
               <p className="mb-4 text-sm text-black">
                 También puedes contratar mis servicios mediante plataformas de freelancing como{' '}
                 <a
-                  href="https://www.fiverr.com/tu_usuario"
+                  href="https://es.fiverr.com/pabloproboste/buying?source=avatar_menu_profile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
@@ -57,7 +57,7 @@ function Contact() {
                 </a>
                 {', '}
                 <a
-                  href="https://www.freelancer.com/u/tu_usuario"
+                  href="https://www.freelancer.com.ar/u/pablo3105"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
@@ -67,7 +67,7 @@ function Contact() {
                 {', '}
                 y{' '}
                 <a
-                  href="https://www.upwork.com/freelancers/~tu_usuario"
+                  href="https://www.upwork.com/freelancers/~011c770fd764ae5fd2?viewMode=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-blue-200 transition-colors duration-300 hover:text-blue-400"
