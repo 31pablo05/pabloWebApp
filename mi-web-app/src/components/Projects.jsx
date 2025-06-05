@@ -8,7 +8,8 @@ import WebAppFederico from './WebAppFederico';
 import AppOsteopatia from './AppOsteopatia';
 import AplicacionDeTareas from './AplicacionDeTareas';
 import AppConvertidorFormatos from './AppConvertidorFormatos';
-
+import WebAppMYBeautyStudy from './WebAppMYBeautyStudy'; 
+import LandingMicropigmentacion from './LandingMicropigmentacion';
 function Projects() {
   return (
     <section
@@ -28,6 +29,8 @@ function Projects() {
           <AppOsteopatia />
           <AplicacionDeTareas />
           <AppConvertidorFormatos />
+          <WebAppMYBeautyStudy />
+          <LandingMicropigmentacion />
           {/* Agrega aquí otros proyectos si los hay */}
         </div>
       </div>
