@@ -43,8 +43,8 @@ const AboutMe = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/assets/Currículum Vitae castellano (2).pdf"
-            download="CV_Pablo_Proboste.pdf"
+            href="/assets/CV-PabloProboste DesarrolladorFrontend.pdf"
+            download="/assets/CV-PabloProboste DesarrolladorFrontend.pdf"
             className="bg-gradient-to-r from-blue-500 to-purple-600  text-white py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
           >
             <span>📄</span> Descargar CV

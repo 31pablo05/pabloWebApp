@@ -86,7 +86,7 @@ const MaestraPatagonica = () => {
             rel="noopener noreferrer"
             className="text-green-500 hover:underline"
           >
-            Live
+            Ver
           </a>
         </div>
       </div>

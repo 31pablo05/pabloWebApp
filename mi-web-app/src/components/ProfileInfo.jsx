@@ -14,7 +14,7 @@ const ProfileInfo = () => {
       <div className="relative w-3/4 sm:w-1/2 lg:w-1/3 max-w-xs mx-auto lg:mx-0 rounded-lg">
         <motion.img
           whileHover={{ scale: 1.05, rotate: 1 }}
-          src="/assets/images webp/pabloperfil2.webp"
+          src="/assets/images webp/pablo-proboste.webp"
           alt="Foto de Pablo"
           className="w-full h-auto object-cover border-gray-700 rounded-lg shadow-lg hover:shadow-[0px_0px_20px_rgba(55,146,153,0.8)] transition-all"
         />

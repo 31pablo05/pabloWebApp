@@ -71,7 +71,7 @@ function CardsProjects({ project, index }) {
             rel="noopener noreferrer"
             className="text-green-600 hover:text-green-800 transition-colors"
           >
-            Live →
+             →
           </a>
         </div>
       </div>
