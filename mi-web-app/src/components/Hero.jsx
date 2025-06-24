@@ -76,12 +76,25 @@ const Hero = () => {
           }`}
         >
           <source src="/assets/videos webm,mp4/fondo3.webm" type="video/webm" />
-          <source src="/assets/videos webm,mp4/fondo3.mp4" type="mp4" />
+          <source src="/assets/videos webm,mp4/fondo3.mp4" type="video/mp4" />
         </video>
       </div>
 
-       {/* Contenido principal */}
-       <div className="container mx-auto px-4 z-20 text-center">
+      {/* Contenido principal */}
+      <div className="container mx-auto px-4 z-20 text-center">
+
+        {/* Imagen de perfil */}
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center mb-4"
+        >
+          <img
+            src="/assets/images webp/pablo-proboste2.png"
+            alt="Foto de Pablo Proboste"
+            className="w-48 h-48 rounded-full border-4 border-white shadow-md object-cover"
+          />
+        </motion.div>
+
         {/* Título principal con icono de mano */}
         <motion.div
           variants={itemVariants}
@@ -98,21 +111,21 @@ const Hero = () => {
             Hola, soy Pablo Proboste
           </h1>
         </motion.div>
+
         <motion.h2
           variants={itemVariants}
-          className=" text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400"
+          className="text-glow text-2xl md:text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-800 to-purple-400"
         >
           Diseñador y Desarrollador Web Frontend
         </motion.h2>
 
         {/* Descripción */}
-<motion.p
-  variants={itemVariants}
-  className="rounded-lg bg-black bg-opacity-50 text-transparent text-shadow text-xl md:text-2xl text-white mb-40 max-w-2xl mx-auto text-justify"
->
-  Creando experiencias web únicas y memorables con pasión por el diseño y la innovación.
-</motion.p>
-
+        <motion.p
+          variants={itemVariants}
+          className="rounded-lg bg-black bg-opacity-50 text-transparent text-shadow text-xl md:text-2xl text-white mb-40 max-w-2xl mx-auto text-justify"
+        >
+          Creando experiencias web únicas y memorables con pasión por el diseño y la innovación.
+        </motion.p>
 
         {/* Botones de acción */}
         <motion.div
@@ -143,7 +156,6 @@ const Hero = () => {
         <motion.div
           variants={itemVariants}
           className="flex justify-center gap-6 rounded-lg bg-gradient-to-r from-blue-400 to-purple-600 text-transparent text-shadow text-lg md:text-2xl text-white mb-8 max-w-2xl mx-auto"
-          
         >
           {socialLinks.map((link) => (
             <motion.a
@@ -155,16 +167,12 @@ const Hero = () => {
               whileTap={{ scale: 0.9 }}
               className={`text-white drop-shadow-lg transition-colors duration-300 ${link.color}`}
               aria-label={`Visitar ${link.name}`}
-              
             >
-             
               {link.icon}
             </motion.a>
           ))}
         </motion.div>
       </div>
-
-      
     </motion.section>
   );
 };
