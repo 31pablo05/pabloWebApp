@@ -80,10 +80,11 @@ function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className={`${
-                  isLargeScreen 
-                    ? 'flex' 
-                    : 'absolute top-full left-0 w-full bg-gradient-to-r from-blue-800 to-violet-800 bg-opacity-95'
+                  isLargeScreen
+                    ? 'flex'
+                    : 'absolute left-0 w-full bg-gradient-to-r from-blue-800 to-violet-800 bg-opacity-95 z-40 top-0 mt-[64px]'
                 } lg:relative lg:w-auto lg:bg-transparent lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-8 p-4 lg:p-0`}
+                style={!isLargeScreen ? { marginTop: 0, top: '100%' } : {}}
               >
                 {menuItems.map((item) => (
                   <motion.li
@@ -100,8 +101,7 @@ function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center space-x-2 text-white hover:text-violet-300 transition-colors cursor-pointer"
                     >
-                      {item.icon}
-                      <span>{item.label}</span>
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}

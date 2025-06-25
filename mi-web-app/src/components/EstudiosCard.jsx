@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { IoSchoolOutline } from 'react-icons/io5';
-import { motion } from 'framer-motion';
+import { FaCertificate, FaTimes, FaChevronRight } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Datos de certificaciones (ajusta imágenes y URLs según corresponda)
 const certifications = [
@@ -242,21 +243,22 @@ const EstudiosCard = () => {
   // Estado para el modal de la lista completa
   const [showFullListModal, setShowFullListModal] = useState(false);
 
-  const openDetailModal = (cert) => {
-    setSelectedCert(cert);
-  };
+  // Cerrar modal con Escape
+  const escListener = useCallback((e) => {
+    if (e.key === 'Escape') {
+      setSelectedCert(null);
+      setShowFullListModal(false);
+    }
+  }, []);
+  useEffect(() => {
+    window.addEventListener('keydown', escListener);
+    return () => window.removeEventListener('keydown', escListener);
+  }, [escListener]);
 
-  const closeDetailModal = () => {
-    setSelectedCert(null);
-  };
-
-  const openFullListModal = () => {
-    setShowFullListModal(true);
-  };
-
-  const closeFullListModal = () => {
-    setShowFullListModal(false);
-  };
+  const openDetailModal = (cert) => setSelectedCert(cert);
+  const closeDetailModal = () => setSelectedCert(null);
+  const openFullListModal = () => setShowFullListModal(true);
+  const closeFullListModal = () => setShowFullListModal(false);
 
   // Número de certificaciones a mostrar en el resumen
   const summaryCount = 3;
@@ -268,99 +270,143 @@ const EstudiosCard = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        whileHover={{ scale: 1.03 }}
-        className="card bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-md border border-gray-700"
+        whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.25)' }}
+        className="card bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border border-blue-400/30 relative overflow-hidden transition-all duration-300"
       >
-        <IoSchoolOutline className="text-4xl mb-4" />
-        <h3 className="text-2xl mb-4 text-center">Estudios y Certificaciones</h3>
-        <div className="text-gray-300 space-y-2">
-          <p className="font-medium">
-            Formación continua en desarrollo web a través de plataformas como Coursera, Google, freeCodeCamp y Meta.
-          </p>
-          <div className="space-y-1">
-            {summaryCerts.map((cert) => (
-              <div
-                key={cert.id}
-                className="cursor-pointer hover:underline"
-                onClick={() => openDetailModal(cert)}
-              >
-                <strong>{cert.title}</strong>
-                <br />
-                <span className="text-sm">
-                  {cert.issuer} {cert.issued && `- Expedición: ${cert.issued}`}
-                </span>
-              </div>
-            ))}
-          </div>
-          {certifications.length > summaryCount && (
-            <button
-              onClick={openFullListModal}
-              className="mt-2 inline-block bg-gradient-to-r from-blue-500 to-purple-600  hover:bg-blue-600 text-white py-1 px-3 rounded transition-all text-sm"
-            >
-              Ver todas las certificaciones
-            </button>
-          )}
-          <p className="text-sm mt-2">
-            También he realizado cursos en: HTML, CSS, JavaScript, Git &amp; GitHub, Ingeniería de Software, React, aplicaciones en la nube, UI/UX, entre otros.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Modal de detalle individual */}
-      {selectedCert && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-gray-800 p-6 rounded-lg relative max-w-md w-full">
-            <button onClick={closeDetailModal} className="absolute top-2 right-2 text-white text-xl">&times;</button>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">{selectedCert.title}</h3>
-              <img src={selectedCert.image} alt={selectedCert.title} className="mx-auto mb-4 rounded" />
-              <p className="text-gray-300 mb-2">
-                {selectedCert.issuer} {selectedCert.issued && `- Expedición: ${selectedCert.issued}`}
-              </p>
-              <p className="text-gray-400 text-sm mb-4">{selectedCert.description}</p>
-              {selectedCert.url && (
-                <a
-                  href={selectedCert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-all"
-                >
-                  Ver Credencial
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de lista completa de certificaciones */}
-      {showFullListModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-gray-800 p-6 rounded-lg relative max-w-3xl w-full max-h-[80vh] overflow-y-auto">
-            <button onClick={closeFullListModal} className="absolute top-2 right-2 text-white text-xl">&times;</button>
-            <h3 className="text-2xl font-bold mb-4 text-center">Todas las Certificaciones</h3>
-            <div className="space-y-4">
-              {certifications.map((cert) => (
+        <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/10 rounded-full blur-2xl z-0" />
+        <div className="relative z-10">
+          <IoSchoolOutline className="text-4xl mb-4 text-blue-400 drop-shadow" />
+          <h3 className="text-2xl mb-4 text-center font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Estudios y Certificaciones</h3>
+          <div className="text-gray-200 space-y-2">
+            <p className="font-medium">
+              Formación continua en desarrollo web a través de plataformas como Coursera, Google, freeCodeCamp y Meta.
+            </p>
+            <div className="space-y-1">
+              {summaryCerts.map((cert) => (
                 <div
                   key={cert.id}
-                  className="cursor-pointer hover:underline p-2 border-b border-gray-700"
-                  onClick={() => {
-                    // Cierra la lista completa y abre el detalle
-                    closeFullListModal();
-                    openDetailModal(cert);
-                  }}
+                  className="cursor-pointer hover:underline flex items-center gap-2 group"
+                  onClick={() => openDetailModal(cert)}
+                  tabIndex={0}
+                  aria-label={`Ver detalle de ${cert.title}`}
                 >
-                  <strong>{cert.title}</strong>
+                  <FaCertificate className="text-blue-400 group-hover:text-purple-400" />
+                  <strong className="text-blue-200 group-hover:text-purple-300 transition-colors">{cert.title}</strong>
+                  <FaChevronRight className="text-xs text-gray-400 group-hover:text-purple-400" />
                   <br />
-                  <span className="text-sm">
+                  <span className="text-xs text-gray-400 ml-6">
                     {cert.issuer} {cert.issued && `- Expedición: ${cert.issued}`}
                   </span>
                 </div>
               ))}
             </div>
+            {certifications.length > summaryCount && (
+              <button
+                onClick={openFullListModal}
+                className="mt-3 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-2 px-4 rounded-lg shadow-lg transition-all text-base font-semibold focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                aria-label="Ver todas las certificaciones"
+              >
+                <FaCertificate /> Ver todas las certificaciones
+              </button>
+            )}
+            <p className="text-sm mt-2">
+              También he realizado cursos en: HTML, CSS, JavaScript, Git &amp; GitHub, Ingeniería de Software, React, aplicaciones en la nube, UI/UX, entre otros.
+            </p>
           </div>
         </div>
-      )}
+      </motion.div>
+
+      {/* Modal de detalle individual */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
+            aria-modal="true"
+            role="dialog"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gray-900/95 p-8 rounded-2xl relative max-w-md w-full shadow-2xl border border-blue-400/30"
+            >
+              <button onClick={closeDetailModal} className="absolute top-2 right-2 text-white text-2xl hover:text-blue-400 focus:outline-none" aria-label="Cerrar modal">
+                <FaTimes />
+              </button>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold mb-4 text-blue-300">{selectedCert.title}</h3>
+                <img src={selectedCert.image} alt={selectedCert.title} className="mx-auto mb-4 rounded shadow-lg border border-blue-400/30" />
+                <p className="text-gray-300 mb-2">
+                  {selectedCert.issuer} {selectedCert.issued && `- Expedición: ${selectedCert.issued}`}
+                </p>
+                <p className="text-gray-400 text-sm mb-4">{selectedCert.description}</p>
+                {selectedCert.url && (
+                  <a
+                    href={selectedCert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-2 px-4 rounded shadow-lg transition-all font-semibold"
+                  >
+                    Ver Credencial
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal de lista completa de certificaciones */}
+      <AnimatePresence>
+        {showFullListModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
+            aria-modal="true"
+            role="dialog"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gray-900/95 p-8 rounded-2xl relative max-w-3xl w-full max-h-[80vh] overflow-y-auto shadow-2xl border border-blue-400/30"
+            >
+              <button onClick={closeFullListModal} className="absolute top-2 right-2 text-white text-2xl hover:text-blue-400 focus:outline-none" aria-label="Cerrar modal">
+                <FaTimes />
+              </button>
+              <h3 className="text-2xl font-bold mb-4 text-center text-blue-300">Todas las Certificaciones</h3>
+              <div className="space-y-4">
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="cursor-pointer hover:underline flex items-center gap-2 p-2 border-b border-gray-700 group"
+                    onClick={() => {
+                      closeFullListModal();
+                      openDetailModal(cert);
+                    }}
+                    tabIndex={0}
+                    aria-label={`Ver detalle de ${cert.title}`}
+                  >
+                    <FaCertificate className="text-blue-400 group-hover:text-purple-400" />
+                    <strong className="text-blue-200 group-hover:text-purple-300 transition-colors">{cert.title}</strong>
+                    <FaChevronRight className="text-xs text-gray-400 group-hover:text-purple-400" />
+                    <span className="text-xs text-gray-400 ml-6">
+                      {cert.issuer} {cert.issued && `- Expedición: ${cert.issued}`}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
