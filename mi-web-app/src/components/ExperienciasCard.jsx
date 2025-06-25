@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGithub, FaNodeJs } from 'react-icons/fa';
-import { SiVite, SiTailwindcss, SiMongodb, SiElectron } from 'react-icons/si';
+import { SiVite, SiTailwindcss, SiMongodb, SiElectron, SiGithubcopilot, SiVercel } from 'react-icons/si';
 import { IoCodeSlashOutline } from 'react-icons/io5';
+import { VscVscode } from 'react-icons/vsc';
 import { motion } from 'framer-motion';
 
 const techs = [
@@ -15,6 +16,9 @@ const techs = [
   { icon: FaNodeJs, color: 'text-green-500', label: 'Node.js' },
   { icon: SiMongodb, color: 'text-green-500', label: 'MongoDB' },
   { icon: SiElectron, color: 'text-blue-300', label: 'Electron' },
+  { icon: SiGithubcopilot, color: 'text-emerald-400', label: 'GitHub Copilot' },
+  { icon: VscVscode, color: 'text-blue-500', label: 'VS Code' },
+  { icon: SiVercel, color: 'text-black', label: 'Vercel' },
 ];
 
 const ExperienciasCard = () => {
